@@ -54,6 +54,10 @@ class Window:
             # Update window
             pygame.display.update()
             clock.tick(self.fps)
+            
+            
+            for generator in self.sim.generators:
+                print(generator.vehicles)
 
             # Handle all events
             for event in pygame.event.get():
@@ -88,6 +92,7 @@ class Window:
         """Runs the simulation by updating in every loop."""
         def loop(sim):
             sim.run(steps_per_update)
+            
         self.loop(loop)
 
     def convert(self, x, y=None):
